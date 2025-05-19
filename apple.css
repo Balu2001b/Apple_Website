@@ -74,6 +74,7 @@ nav i {
   min-width: 280px;
   padding: 20px;
   border: 1px solid #ccc;
+  border-radius: 20px;
 }
 
 /* Marquee */
