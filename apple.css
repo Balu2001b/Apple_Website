@@ -73,8 +73,9 @@ nav i {
   flex: 1 1 45%;
   min-width: 280px;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
+  border: 1px solid #d4d0d0b0;
+    border-radius: 20px;
+    box-shadow: 20px 20px 20px #919090b0;
 }
 
 /* Marquee */
