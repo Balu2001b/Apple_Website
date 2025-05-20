@@ -278,6 +278,36 @@
                 </ul>
             </div>
     </div>
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const headers = document.querySelectorAll('.section1 h2');
+
+    headers.forEach(h2 => {
+      h2.addEventListener('click', function () {
+        // Only activate on mobile
+        if (window.innerWidth <= 600) {
+          // Close all other uls
+          headers.forEach(other => {
+            if (other !== h2) {
+              other.classList.remove('active');
+              const otherUl = other.nextElementSibling;
+              if (otherUl && otherUl.tagName === 'UL') {
+                otherUl.classList.remove('active');
+              }
+            }
+          });
+
+          // Toggle current
+          const ul = h2.nextElementSibling;
+          if (ul && ul.tagName === 'UL') {
+            h2.classList.toggle('active');
+            ul.classList.toggle('active');
+          }
+        }
+      });
+    });
+  });
+</script>
 </body>
 
 </html>
