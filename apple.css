@@ -67,6 +67,8 @@ nav i {
   justify-content: space-between;
   gap: 20px;
   padding: 20px;
+  
+
 }
 
 .sec {
@@ -144,18 +146,16 @@ button {
   height: auto;
 }
 
-/* Media Queries */
-@media (max-width: 600px) {
+
+/* Tablet - up to 768px */
+@media (max-width: 768px) {
   nav ul {
     flex-direction: column;
     align-items: flex-start;
+    gap: 10px;
   }
 
-  .main, .main1, .watch {
-    flex-direction: column;
-  }
-
-  .group {
+  .main, .main1, .watch, .group, .infobar {
     flex-direction: column;
   }
 
@@ -163,17 +163,20 @@ button {
     width: 100%;
   }
 
-  .infobar {
-    flex-direction: column;
-  }
-
   .footer .nav ul {
     flex-direction: column;
     align-items: center;
+    gap: 10px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 16px;
   }
 }
 
-@media (max-width: 480px) {
+/* Mobile - up to 600px */
+@media (max-width: 600px) {
   nav {
     flex-direction: column;
     align-items: flex-start;
@@ -183,12 +186,101 @@ button {
     margin: 10px 0;
   }
 
-  button {
-    width: 100%;
-    font-size: 16px;
-  }
-
   .main, .main1, .watch {
     padding: 20px 10px;
   }
+
+  .footer {
+    padding: 20px 10px;
+  }
 }
+
+/* Small Mobile - up to 480px */
+@media (max-width: 480px) {
+  h1, h2, h3 {
+    font-size: 90%;
+  }
+
+  .main, .main1, .watch {
+    padding: 15px 5px;
+  }
+
+  nav ul {
+    gap: 5px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+/* Base styling for .infobar */
+.infobar {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1px;
+}
+
+/* Mobile accordion behavior */
+@media (max-width: 600px) {
+  .infobar {
+    flex-direction: column;
+  }
+
+  .section1 h2 {
+    cursor: pointer;
+    position: relative;
+    padding: 10px 0;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+    
+  }
+
+  .section1 h2::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 12px;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+  }
+
+  .section1 h2.active::after {
+    transform: rotate(180deg);
+  }
+
+  .section1 ul {
+    display: none;
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .section1 ul.active {
+    display: block;
+  }
+}
+
+
+/* Desktop view - always show lists */
+@media (min-width: 601px) {
+  .section1 ul {
+    display: block !important;
+  }
+
+  .section1 h2 {
+    cursor: pointer;
+  }
+
+  .section1 h2::after {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .section1 h2 {
+    margin: 10px 0px;
+    margin-top: 20px;
+  }
+}
+
+
